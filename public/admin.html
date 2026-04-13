@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard • CineWave</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <a class="logo" href="index.html">CineWave</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#movies">Movies</a></li>
+            <li><a href="booking.html">Book</a></li>
+            <li><a class="active" href="admin.html">Admin</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container admin-layout" id="admin-app">
+      <section class="admin-card" id="login-card">
+        <h2>Admin Login</h2>
+        <p class="muted">
+          Use the admin credentials configured in your environment file to manage movies and
+          showtimes.
+        </p>
+        <div id="login-alert" class="alert"></div>
+        <form id="login-form" class="form-grid mt-3">
+          <div class="form-field">
+            <label for="admin-email">Email</label>
+            <input type="email" id="admin-email" name="email" required />
+          </div>
+          <div class="form-field">
+            <label for="admin-password">Password</label>
+            <input type="password" id="admin-password" name="password" required />
+          </div>
+          <button class="btn btn-primary" type="submit">Sign In</button>
+        </form>
+      </section>
+
+      <section class="hidden" id="dashboard">
+        <div class="admin-card">
+          <div class="section-title">
+            <h2>Movies</h2>
+            <span>Manage titles, genres, and metadata</span>
+          </div>
+          <div id="movie-alert" class="alert"></div>
+          <form id="movie-form" class="form-grid mt-3">
+            <input type="hidden" id="movie-id" name="movie-id" />
+            <div class="form-field">
+              <label for="movie-title">Title</label>
+              <input type="text" id="movie-title" name="movie-title" required />
+            </div>
+            <div class="form-field">
+              <label for="movie-genre">Genre</label>
+              <input type="text" id="movie-genre" name="movie-genre" placeholder="e.g. Sci-Fi" />
+            </div>
+            <div class="form-field">
+              <label for="movie-duration">Duration (minutes)</label>
+              <input type="number" id="movie-duration" name="movie-duration" min="0" />
+            </div>
+            <div class="form-field">
+              <label for="movie-poster">Poster URL</label>
+              <input type="url" id="movie-poster" name="movie-poster" placeholder="https://..." />
+            </div>
+            <div class="form-field">
+              <label for="movie-trailer">Trailer Link</label>
+              <input
+                type="url"
+                id="movie-trailer"
+                name="movie-trailer"
+                placeholder="https://youtube.com/..."
+              />
+            </div>
+            <div class="form-field">
+              <label for="movie-cast">Cast (comma separated)</label>
+              <input
+                type="text"
+                id="movie-cast"
+                name="movie-cast"
+                placeholder="Actor One, Actor Two"
+              />
+            </div>
+            <div class="form-field">
+              <label for="movie-description">Description</label>
+              <textarea id="movie-description" name="movie-description" rows="3"></textarea>
+            </div>
+            <div class="form-field">
+              <label for="movie-rating">Rating (0-10)</label>
+              <input
+                type="number"
+                id="movie-rating"
+                name="movie-rating"
+                min="0"
+                max="10"
+                step="0.1"
+              />
+            </div>
+            <div class="hero-actions">
+              <button class="btn btn-primary" type="submit">Save Movie</button>
+              <button class="btn btn-outline" type="reset" id="movie-reset">Clear</button>
+            </div>
+          </form>
+
+          <table class="table mt-4" id="movie-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Duration</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="admin-card">
+          <div class="section-title">
+            <h2>Showtimes</h2>
+            <span>Schedule screenings and manage seat layouts</span>
+          </div>
+          <div id="showtime-alert" class="alert"></div>
+          <form id="showtime-form" class="form-grid mt-3">
+            <input type="hidden" id="showtime-id" name="showtime-id" />
+            <div class="form-field">
+              <label for="showtime-movie">Movie</label>
+              <select id="showtime-movie" name="showtime-movie" required></select>
+            </div>
+            <div class="form-field">
+              <label for="showtime-start">Start Time</label>
+              <input type="datetime-local" id="showtime-start" name="showtime-start" required />
+            </div>
+            <div class="form-field">
+              <label for="showtime-price">Ticket Price</label>
+              <input type="number" id="showtime-price" name="showtime-price" min="0" step="0.5" />
+            </div>
+            <div class="form-field">
+              <label for="showtime-auditorium">Auditorium</label>
+              <input
+                type="text"
+                id="showtime-auditorium"
+                name="showtime-auditorium"
+                placeholder="Screen 1"
+              />
+            </div>
+            <div class="form-field">
+              <label for="showtime-reset-seats">
+                <input type="checkbox" id="showtime-reset-seats" name="showtime-reset-seats" />
+                Reset seat layout (regenerate availability)
+              </label>
+            </div>
+            <div class="form-field">
+              <label for="showtime-rows">Row Labels (optional, comma separated)</label>
+              <input
+                type="text"
+                id="showtime-rows"
+                name="showtime-rows"
+                placeholder="A,B,C,D,E,F"
+              />
+            </div>
+            <div class="form-field">
+              <label for="showtime-seats-per-row">Seats Per Row</label>
+              <input
+                type="number"
+                id="showtime-seats-per-row"
+                name="showtime-seats-per-row"
+                min="1"
+                placeholder="8"
+              />
+            </div>
+            <div class="hero-actions">
+              <button class="btn btn-primary" type="submit">Save Showtime</button>
+              <button class="btn btn-outline" type="reset" id="showtime-reset">Clear</button>
+            </div>
+          </form>
+
+          <table class="table mt-4" id="showtime-table">
+            <thead>
+              <tr>
+                <th>Movie</th>
+                <th>Start</th>
+                <th>Seats</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="admin-card">
+          <div class="section-title">
+            <h2>Recent Bookings</h2>
+            <span>Monitor customer reservations</span>
+          </div>
+          <table class="table" id="booking-table">
+            <thead>
+              <tr>
+                <th>Booking</th>
+                <th>Customer</th>
+                <th>Movie</th>
+                <th>Showtime</th>
+                <th>Seats</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; <span id="footer-year"></span> CineWave.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/admin.js"></script>
+  </body>
+</html>
+

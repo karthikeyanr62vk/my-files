@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Tickets • CineWave</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <a class="logo" href="index.html">CineWave</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#movies">Movies</a></li>
+            <li><a class="active" href="booking.html">Book</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="seat-container">
+        <div class="section-title">
+          <h2>Reserve Your Seats</h2>
+          <span>Choose a movie, pick a showtime, and select your seats</span>
+        </div>
+
+        <div id="booking-alert" class="alert"></div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="movie-select">Movie</label>
+            <select id="movie-select"></select>
+          </div>
+
+          <div class="form-field">
+            <label for="showtime-select">Showtime</label>
+            <select id="showtime-select" disabled></select>
+          </div>
+        </div>
+
+        <div id="showtime-meta" class="mt-3 hidden"></div>
+
+        <div id="seat-grid" class="seat-grid mt-3" aria-live="polite"></div>
+
+        <form id="booking-form" class="form-grid mt-4">
+          <div class="form-field">
+            <label for="user-name">Your Name</label>
+            <input type="text" id="user-name" name="userName" required placeholder="Jane Doe" />
+          </div>
+          <div class="form-field">
+            <label for="user-email">Email Address</label>
+            <input
+              type="email"
+              id="user-email"
+              name="userEmail"
+              required
+              placeholder="jane@example.com"
+            />
+          </div>
+
+          <button class="btn btn-primary" type="submit">Confirm Booking</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; <span id="footer-year"></span> CineWave.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/booking.js"></script>
+  </body>
+</html>
+
+

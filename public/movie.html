@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Movie Details • CineWave</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <a class="logo" href="index.html">CineWave</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="movie.html">Movies</a></li>
+            <li><a href="booking.html">Book</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="detail-layout" id="movie-details" aria-live="polite"></section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; <span id="footer-year"></span> CineWave.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/movie.js"></script>
+  </body>
+</html>
+

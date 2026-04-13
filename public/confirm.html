@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Booking Confirmation • CineWave</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <a class="logo" href="index.html">CineWave</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#movies">Movies</a></li>
+            <li><a href="booking.html">Book</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="summary-card" id="confirmation-card">
+        <h2>Booking Confirmation</h2>
+        <p class="muted">
+          Thank you for booking with CineWave! Your booking details are below. A confirmation email
+          has been sent to you.
+        </p>
+        <ul class="summary-list" id="confirmation-list"></ul>
+        <div class="hero-actions mt-3">
+          <a class="btn btn-primary" href="index.html">Back to Home</a>
+          <a class="btn btn-outline" href="booking.html">Book More Tickets</a>
+        </div>
+      </section>
+      <section class="summary-card hidden" id="empty-state">
+        <h2>No Booking Found</h2>
+        <p>We couldn't find a recent booking. Please make a new reservation.</p>
+        <a class="btn btn-primary mt-3" href="booking.html">Go to Booking</a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; <span id="footer-year"></span> CineWave.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/confirm.js"></script>
+  </body>
+</html>
+
+

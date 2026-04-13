@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CineWave • Book Movie Tickets</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <a class="logo" href="/">CineWave</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="#movies">Movies</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container hero" id="about">
+        <div class="hero-content">
+          <h1>Watch The Latest Blockbusters</h1>
+          <p>
+            Browse current movies, explore showtimes, pick your favorite seats, and book tickets in
+            seconds. CineWave makes movie nights effortless and memorable.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#movies">Explore Movies</a>
+            <a class="btn btn-outline" href="booking.html">Quick Booking</a>
+          </div>
+        </div>
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80"
+            alt="Cinema auditorium"
+          />
+        </div>
+      </section>
+
+      <section class="container" id="movies">
+        <div class="section-title">
+          <h2>Now Showing</h2>
+          <span>Pick a showtime and grab your seats</span>
+        </div>
+        <div id="movies-grid" class="movie-grid"></div>
+      </section>
+
+      <section class="container info-section" id="contact">
+        <div class="section-title">
+          <h2>Plan Your Visit</h2>
+        </div>
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Premium Experience</h3>
+            <p>
+              Dolby Atmos sound, 4K projection, and recliner seats across all auditoriums. Enjoy the
+              movie the way it was meant to be seen.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Snacks &amp; Beverages</h3>
+            <p>
+              Gourmet popcorn flavours, handcrafted beverages, and combos designed to pair with your
+              cinema experience.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Contact Us</h3>
+            <p>
+              Have questions about group bookings or private screenings? Reach us at
+              <a href="mailto:hello@cinewave.com">hello@cinewave.com</a>.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; <span id="footer-year"></span> CineWave. Crafted for unforgettable movie nights.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>
+
